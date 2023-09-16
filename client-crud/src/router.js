@@ -17,7 +17,7 @@ function Router() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/crud" element={<CRUD />} />
+                <Route path="/CRUD" element={<CRUD />} />
                 <Route path="/produtos" element={<Produtos />} />
             </Routes>
         </BrowserRouter>

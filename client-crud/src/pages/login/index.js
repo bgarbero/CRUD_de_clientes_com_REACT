@@ -35,7 +35,7 @@ function Login() {
         < div className="caixa-login" >
 
             {/* <!--Título da tela de login--> */}
-            <div class="titulo-login">
+            <div className="titulo-login">
                 <h1>Client's CRUD</h1>
             </div>
 

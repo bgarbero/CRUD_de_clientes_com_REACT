@@ -3,7 +3,7 @@ ul.menu{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:blueviolet;
+    background-color:#363636;
 }
 
 li{
@@ -22,10 +22,10 @@ li a{
     text-align: center;
 }
 
-li a:hover{
+/* li a:hover{
     background-color: aqua;
 
-}
+} */
 
 li:last-child{
     float: right;

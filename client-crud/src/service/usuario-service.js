@@ -33,7 +33,7 @@ function sairSistema() {
 }
 
 function direcionarTelaDeLogin() {
-    window.open('login.html', '_self');
+    window.open('/login', '_self');
 }
 
 function usuarioEstaLogado() {
@@ -52,7 +52,7 @@ function validarUsuarioAutenticado() {
     }
 }
 
-validarUsuarioAutenticado();
+//validarUsuarioAutenticado();
 
 export default {
     autenticar,
