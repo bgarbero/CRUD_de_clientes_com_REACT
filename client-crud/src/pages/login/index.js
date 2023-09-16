@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Swal from 'sweetalert2'
 import './index.css';
 
+import usuarioService from '../../service/usuario-service';
+
 function Login() {
 
     const [email, setEmail] = useState('');
@@ -17,6 +19,16 @@ function Login() {
               })
             return;
         }
+
+        usuarioService.autenticar(email, senha)
+        .then(response => {
+            usuarioService.salvarToken(response.data.token)
+            usuarioService.salvarUsuario(response.data.usuario)
+            window.location='/'
+        })
+        .catch(erro => {
+            console.log(erro)
+        })
     };
 
     return (
@@ -64,4 +76,5 @@ function Login() {
         </div>
     )
 }
+
 export default Login;
