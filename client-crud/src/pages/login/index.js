@@ -26,7 +26,7 @@ function Login() {
             .then(response => {
                 usuarioService.salvarToken(response.data.token)
                 usuarioService.salvarUsuario(response.data.usuario)
-                window.location = '/'
+                window.location = '/crud'
             })
             .catch(erro => {
                 console.log(erro)
