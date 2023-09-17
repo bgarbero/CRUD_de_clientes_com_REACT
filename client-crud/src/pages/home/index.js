@@ -1,7 +1,7 @@
 import './index.css';
 
-function Home (){
-    return(
+function Home() {
+    return (
         <div>
             <h1>
                 Home em construção

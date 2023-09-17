@@ -3,32 +3,34 @@ import Swal from 'sweetalert2'
 import './index.css';
 
 import usuarioService from '../../service/usuario-service';
+import MeuComponente from '../../components/minhaImagem';
+
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const logar = () =>{
+    const logar = () => {
         if (!email || !senha) {
             //caso esteja incorreto, mandar mensagem de usuário e senha inválida
             Swal.fire({
                 icon: 'error',
                 //title: 'Oops...',
                 text: 'O campo de e-mail e senha são obrigatórios',
-              })
+            })
             return;
         }
 
         usuarioService.autenticar(email, senha)
-        .then(response => {
-            usuarioService.salvarToken(response.data.token)
-            usuarioService.salvarUsuario(response.data.usuario)
-            window.location='/'
-        })
-        .catch(erro => {
-            console.log(erro)
-        })
+            .then(response => {
+                usuarioService.salvarToken(response.data.token)
+                usuarioService.salvarUsuario(response.data.usuario)
+                window.location = '/'
+            })
+            .catch(erro => {
+                console.log(erro)
+            })
     };
 
     return (
@@ -72,7 +74,7 @@ function Login() {
             {/* <!--Botão--> */}
             <button id="btn-entrar" onClick={logar} type="submit">Entrar</button>
 
-            {/* <image id="img-login" src="./assets/vendedor.jpg"></image> */}
+            <MeuComponente />
         </div>
     )
 }
