@@ -44,7 +44,7 @@ body{
 }
 
 #btn-editar{
-    right: 250px;
+    right: 380px;
     position: absolute;
 }
 
@@ -62,9 +62,10 @@ body{
     padding-right: -1400px;
 } */
 
-/* .container {
-    
-} */
+.container-fluid {
+    padding-left: 200px;
+    padding-right: 200px;
+}
 
 * {
     margin: 0;
