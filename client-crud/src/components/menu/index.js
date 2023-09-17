@@ -4,6 +4,8 @@ import {Link, useLocation} from 'react-router-dom';
 
 import usuarioService from '../../service/usuario-service';
 
+import ImagemSair from '../imagemSair';
+
 function Menu(){
     const logout = () =>{
         usuarioService.sairSistema();
@@ -15,7 +17,7 @@ function Menu(){
                 <li><Link to='/'>Client's<br></br> CRUD</Link></li>
                 <li><Link to='/crud'>CRUD</Link></li>
                 <li><Link to='/produtos'>Produtos</Link></li>
-                <li><Link onClick={logout}>Sair</Link></li>
+                <li><Link onClick={logout}><ImagemSair/></Link></li>
             </ul>
         )
     }else{

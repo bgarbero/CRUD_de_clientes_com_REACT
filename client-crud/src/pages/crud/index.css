@@ -43,6 +43,11 @@ body{
     color: #696969;
 }
 
+#btn-editar{
+    right: 250px;
+    position: absolute;
+}
+
 #btn-excluir:hover{
     background-color: #fdc094;
     color: #696969;
