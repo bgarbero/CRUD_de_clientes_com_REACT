@@ -26,8 +26,8 @@ function CRUD() {
     }
 
     return (
-        <div className="container">
 
+        <div className="container-fluid">
             {/*Titulo*/}
             <div className="row mt-3">
                 <div className="col-sm-12">
@@ -36,19 +36,24 @@ function CRUD() {
                 </div>
             </div>
 
+
             {/*Botão adicionar*/}
-            <div className="row">
+            <div className="row ">
                 <div className="col-sm-3">
-                    <button id="btn-adicionar" className="btn btn-primary btn-sm">
+                    <button
+                        id="btn-adicionar"
+                        className="btn btn-primary btn-sm"
+                    >
                         Adicionar
                     </button>
                 </div>
             </div>
 
+
             {/*Colunas*/}
             <div className="row mt-3">
                 <div className="col-sm-12">
-                    <table className="table table-dark table-hover mt-3">
+                    <table className="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -70,21 +75,19 @@ function CRUD() {
                                     <td>{cliente.telefone}</td>
                                     <td>{cliente.dataCadastro}</td>
                                     <td>
-                                        <button id="btn-editar" onClick={editar} class="btn btn-outline-primary btn-sm mr-3">
+                                        <button id="btn-editar" onClick={editar} className="btn btn-outline-primary btn-sm mr-3">
                                             Editar
                                         </button>
-                                        <button id="btn-excluir" onClick={excluir} class="btn btn-outline-primary btn-sm mr-3">
+                                        <button id="btn-excluir" onClick={excluir} className="btn btn-outline-primary btn-sm mr-3">
                                             Excluir
                                         </button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
-                        {/* </thead> */}
                     </table>
                 </div>
             </div>
-
             {/*Modal*/}
             <div className="row">
                 {/* The Modal */}
