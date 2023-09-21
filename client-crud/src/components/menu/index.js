@@ -14,7 +14,7 @@ function Menu(){
     if(useLocation().pathname !== "/login"){
         return (
             <ul className='menu'>
-                <li><Link to='/'>Client's<br></br> CRUD</Link></li>
+                <li><Link to='/crud'>Client's<br></br> CRUD</Link></li>
                 <li><Link to='/crud'>CRUD</Link></li>
                 <li><Link to='/produtos'>Produtos</Link></li>
                 <li><Link onClick={logout}><ImagemSair/></Link></li>
