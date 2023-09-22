@@ -22,16 +22,62 @@ function CRUD() {
             });
     }, []);
 
-    const editar = (id) => {
+    const editar = (e) => {
         setModoEdicao(true);
+        let clienteEncontrado = clientes.find(c => c.id == e.target.id);
+        clienteEncontrado.dataCadastro = clienteEncontrado.dataCadastro.substring(0, 10);
+        setCliente(clienteEncontrado);
     }
 
-    const excluir = (id) => {
-        alert(id)
+    const excluir = (e) => {
+        let clienteEncontrado = clientes.find(c => c.id == e.target.id);
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })
+          
+          swalWithBootstrapButtons.fire({
+            title: 'Confirme a operação!',
+            text: `Você deseja mesmo excluir o cliente ${cliente.nome}?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                'Excluído!',
+                '',
+                'success'
+              )
+            excluirClienteBackend(clienteEncontrado.id);
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire(
+              'Cancelado!',
+              '',
+              'error'
+            )
+          }
+        })
     }
 
     const adicionar = () => {
         setModoEdicao(false);
+    }
+
+    const atualizarClienteNaTabela = (clienteAtualizado, removerCliente = false) => {
+        let indice = clientes.findIndex((cliente) => cliente.id === clienteAtualizado.id);
+        (removerCliente)
+            ? clientes.splice(indice, 1,)
+            : clientes.splice(indice, 1, cliente);
+        setClientes(arr => [...arr]);
     }
 
     const salvar = () => {
@@ -57,7 +103,7 @@ function CRUD() {
                     icon: 'success',
                     title: 'Cliente cadastrado com sucesso!',
                     showConfirmButton: false,
-                    timer: 2500
+                    timer: 1500
                 });
             })
             .catch(erro => {
@@ -66,7 +112,37 @@ function CRUD() {
     }
 
     const atualizarClienteBackend = (cliente) => {
+        crudService.atualizar(cliente)
+            .then(response => {
+                atualizarClienteNaTabela(response.data);
+                limparCliente();
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Cliente atualizado com sucesso!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(erro => {
 
+            })
+    }
+
+    const excluirClienteBackend = (id) => {
+        crudService.excluir(id)
+            .then(() => {
+                let clienteEncontrado = clientes.find(c => c.id == id);
+                atualizarClienteNaTabela(clienteEncontrado, true);
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Cliente excluído com sucesso!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch();
     }
 
     const limparCliente = () => {
@@ -132,10 +208,18 @@ function CRUD() {
                                     <td>{cliente.telefone}</td>
                                     <td>{new Date(cliente.dataCadastro).toLocaleDateString()}</td>
                                     <td>
-                                        <button id="btn-editar" onClick={editar} className="btn btn-outline-primary btn-sm mr-3" data-bs-toggle="modal" data-bs-target="#modal-cliente">
+                                        <button
+                                            id={cliente.id}
+                                            onClick={editar}
+                                            className="btn btn-outline-primary btn-sm mr-3"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modal-cliente">
                                             Editar
                                         </button>
-                                        <button id="btn-excluir" onClick={excluir} className="btn btn-outline-primary btn-sm mr-3">
+                                        <button
+                                            id={cliente.id}
+                                            onClick={excluir}
+                                            className="btn btn-outline-primary btn-sm mr-3">
                                             Excluir
                                         </button>
                                     </td>
@@ -256,3 +340,7 @@ function CRUD() {
 }
 
 export default CRUD; 
+
+//fazer o modal fechar após salvar no modo editar. modalhide?
+//arrumar o layout dos botões
+//recomeçar a aula do minuto 40
