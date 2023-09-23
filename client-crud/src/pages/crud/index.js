@@ -211,7 +211,7 @@ function CRUD() {
                                         <button
                                             id={cliente.id}
                                             onClick={editar}
-                                            className="btn btn-outline-primary btn-sm mr-3"
+                                            className="btn btn-outline-primary btn-sm espaco"
                                             data-bs-toggle="modal"
                                             data-bs-target="#modal-cliente">
                                             Editar
@@ -219,7 +219,7 @@ function CRUD() {
                                         <button
                                             id={cliente.id}
                                             onClick={excluir}
-                                            className="btn btn-outline-primary btn-sm mr-3">
+                                            className="btn btn-outline-primary btn-sm espaco">
                                             Excluir
                                         </button>
                                     </td>
@@ -327,7 +327,7 @@ function CRUD() {
                             {/* Modal footer */}
                             <div className="modal-footer">
                                 <button id="btn-salvar" className="btn btn-primary btn-sm" onClick={salvar}>Salvar</button>
-                                <button id="btn-cancelar" className="btn btn-light btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                                <button id="btn-cancelar" className="btn btn-light btn-sm" data-bs-dismiss="modal" onClick={limparCliente}>Cancelar</button>
                             </div>
 
                         </div>
@@ -342,5 +342,3 @@ function CRUD() {
 export default CRUD; 
 
 //fazer o modal fechar após salvar no modo editar. modalhide?
-//arrumar o layout dos botões
-//recomeçar a aula do minuto 40

@@ -4,15 +4,6 @@ table.table {
     box-shadow: 0 0 10px 0 rgb(50 50 50 / 82%);
 }
 
-/* table.table>thead>tr th {
-    background-color: #eee;
-}
-
-button.btn {
-    min-width: 80px;
-} */
-
-/* Override*/
 div.modal-dialog {
     max-width: 700px;
 }
@@ -25,7 +16,7 @@ body{
     color: aliceblue;
 }
 
-#btn-adicionar, #btn-editar, #btn-excluir, #btn-pesquisar {
+#btn-adicionar {
     background-color: #fdb17a;
     border: none;
     color: #363636;
@@ -38,29 +29,19 @@ body{
     color: #696969;
 }
 
-#btn-editar:hover{
-    background-color: #fdc094;
-    color: #696969;
-}
-
-#btn-editar{
+/* #btn-editar{
     right: 380px;
     position: absolute;
-}
-
-#btn-excluir:hover{
-    background-color: #fdc094;
-    color: #696969;
-}
+}*/
 
 #exit:hover{
     cursor: pointer;
 }
 
-/* #exit{
+#exit{
     color: #363636;
     padding-right: -1400px;
-} */
+} 
 
 .container-fluid {
     padding-left: 200px;
@@ -74,15 +55,25 @@ body{
     font-family: 'Raleway', sans-serif;    
 }
 
-button {
-    background-color: #fdb17a;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: #fdc094;
-}
-
 #loading {
     display: none;
+}
+
+.btn-outline-primary{
+    background-color: #fdb17a;
+    border: none;
+    color: #2d3250;
+    font-size: large;
+    font-weight: 500;
+    /* margin-right: 50px; */
+}
+
+.btn-outline-primary:hover{
+    background-color: #2d3250;
+    color: #fdb17a;
+}
+
+.espaco {
+    margin-left: 10px;
+    margin-right: 10px
 }
